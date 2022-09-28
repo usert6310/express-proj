@@ -1,0 +1,7 @@
+{{> navbar}}
+
+{{#each fileObjects}}
+<a href="/{{this.id}}"><h3>{{this.articleName}}</h3></a>
+<p>{{this.articleSummary}}</p>
+
+{{/each}}
