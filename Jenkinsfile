@@ -9,6 +9,7 @@ pipeline {
             steps {
                 echo "inbuild"
             }
+        }
         
         stage("test") {
 
@@ -26,4 +27,3 @@ pipeline {
 
         }
     }
-}
