@@ -12,17 +12,6 @@ pipeline {
                 sh """
                 npm i -y
                 """
-                //sh """
-                //nohup npm run run-server 
-                //"""
-                
-                script{
-                    withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                        sh """
-                        nohup npm run run-server
-                        """
-                    }
-                }
 
                 echo "build complete"
 
@@ -33,9 +22,9 @@ pipeline {
             steps {
                 echo "in test"
                 
-                //sh """
-                //npm test
-                //"""
+                sh """
+                npm test
+                """
                 
                 //cypress run
             }
