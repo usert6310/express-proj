@@ -28,7 +28,10 @@ pipeline {
         stage("test") {
             steps {
                 echo "in test"
+                sh """
                 npm test
+                """
+                
                 //cypress run
             }
         }
