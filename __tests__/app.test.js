@@ -12,7 +12,7 @@ describe("array function", () => {
     }];
 
     const input = ["testfile1.txt"]
-    expect(createTextArray(input)).toEqual(expectedArray)
+    expect(createTextArray(input, "__tests__/test_files")).toEqual(expectedArray)
   });
 });
 

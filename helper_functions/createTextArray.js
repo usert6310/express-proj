@@ -1,12 +1,10 @@
 const fs = require("fs");
 
-const TEXT_LOCATION = process.env.ENV || "text_files"
-
-exports.createTextArray = function createTextArray(fileNames) {
+exports.createTextArray = function createTextArray(fileNames, filePath) {
   const textArray = [];
   fileNames.forEach((file, index) => {
     let textContent = fs.readFileSync(
-      (`./${TEXT_LOCATION}/${file}`),
+      (`./${filePath}/${file}`),
       "utf-8",
       (err, data) => {
         return data;

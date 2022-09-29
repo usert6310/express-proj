@@ -10,7 +10,7 @@ const port = 3001;
 // Get list of file names from article repository
 fileNames = getFileNames("./text_files");
 // Create an array of contents of the articles to be displayed within the webpage
-textArray = createTextArray(fileNames);
+textArray = createTextArray(fileNames, "text_files");
 
 // Set default engine & view
 app.set("view engine", "hbs");
