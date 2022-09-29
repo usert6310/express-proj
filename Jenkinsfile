@@ -25,9 +25,9 @@ pipeline {
             steps {
                 echo "in test"
                 
-                sh """
-                npm test
-                """
+                //sh """
+                //npm test
+                //"""
                 
                 //cypress run
             }
