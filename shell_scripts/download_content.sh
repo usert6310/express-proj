@@ -34,16 +34,27 @@ if [[ $file_name =~ $filename_regex ]]
 fi
 
 # Check if the file already exists. Exit with failure if true
-if [ -f $filename.txt ]
+if [ -f ./text_files/$file_name.txt ]
 then   
     echo "File already exists. Aborting"
     exit 1
 fi
 
 
-# Check length of file for download. If length == 0 do not download
-
-
 # Download the file to the text_files directory
-curl -o ./text_files/$file_name.txt $url > /dev/null 2>&1
+curl -o ./text_files/$file_name.txt $url
+
+
+# Get number of lines of download file
+file_length=`wc -l < ./text_files/$file_name.txt`
+
+lines_check=1
+# Compare the number of lines against set boundary, if less than boundary, delete file and exit 1
+if [[ $file_length -lt $lines_check ]] 
+    then
+        echo "File empty. Aborting"
+        rm -f ./text_files/$file_name.txt
+        exit 1
+fi
+
 
