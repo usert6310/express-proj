@@ -1,40 +1,19 @@
 const express = require("express");
+const handlebars = require("express-handlebars");
+const { createTextArray } = require("./helper_functions/createTextArray");
+const { getFileNames } = require("./helper_functions/getFileNames");
+const { login, home, article } = require("./endpoint_functions");
+
 const app = express();
 const port = 3001;
-const fs = require("fs");
 
-const handlebars = require("express-handlebars");
+// Get list of file names from article repository
+fileNames = getFileNames("./text_files");
+// Create an array of contents of the articles to be displayed within the webpage
+textArray = createTextArray(fileNames);
 
-const fileNames = fs.readdirSync("./text_files", (err, files) => {
-  if (err) {
-    console.log("error");
-    return;
-  }
-  console.log(files);
-  return files;
-});
-
-const textArray = [];
-
-fileNames.forEach((file, index) => {
-  let textContent = fs.readFileSync(
-    `./text_files/${file}`,
-    "utf-8",
-    (err, data) => {
-      return data;
-    }
-  );
-  const articleArray = {
-    id: index,
-    articleName: file,
-    contents: textContent,
-    articleSummary: `${textContent.substring(0, 120)}...`,
-  };
-  textArray.push(articleArray);
-});
-
+// Set default engine & view
 app.set("view engine", "hbs");
-
 app.engine(
   "hbs",
   handlebars.engine({
@@ -44,18 +23,17 @@ app.engine(
   })
 );
 
-console.log(textArray[0])
+// Home page (uses main view)
+app.get("/", home);
 
-app.use(express.static("public"));
+// Login Page (uses login_page view)
+app.get("/login", login);
 
-app.get("/", (req, res) => {
-  res.render("main", { layout: "index", fileObjects: textArray });
-});
+// Dynamic url to create a new endpoint for each article in textArray
+// (uses individual_article view)
+app.get("/articles/:id", article);
 
-app.get("/0", (req, res) => {
-  res.render("secondary", { layout: "index", fileObjects: textArray[0] })
-})
-
+// init express
 app.listen(port, () => {
   console.log(`App listening to port ${port}`);
 });
