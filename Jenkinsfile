@@ -21,6 +21,7 @@ pipeline {
                         sh """
                         nohup npm run run-server
                         """
+                    }
                 }
 
                 echo "build complete"
