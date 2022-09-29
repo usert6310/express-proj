@@ -12,9 +12,16 @@ pipeline {
                 sh """
                 npm i -y
                 """
-                sh """
-                nohup npm run run-server 
-                """
+                //sh """
+                //nohup npm run run-server 
+                //"""
+                
+                script{
+                    withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                        sh """
+                        nohup npm run run-server
+                        """
+                }
 
                 echo "build complete"
 
