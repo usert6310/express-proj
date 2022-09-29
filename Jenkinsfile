@@ -12,18 +12,31 @@ pipeline {
                 sh """
                 npm i -y
                 """
-                // sh """
-                // npm run run-server & wait-on http://localhost:8080
-                // """
+                //sh """
+                //nohup npm run run-server 
+                //"""
+                
+                script{
+                    withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                        sh """
+                        nohup npm run run-server
+                        """
+                    }
+                }
 
                 echo "build complete"
+
             }
         }
         
         stage("test") {
             steps {
                 echo "in test"
+                
+                //sh """
                 //npm test
+                //"""
+                
                 //cypress run
             }
         }
@@ -34,4 +47,4 @@ pipeline {
         }
         }
 }
-    
+   
