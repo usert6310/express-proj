@@ -1,22 +1,22 @@
 pipeline {
     agent any
 
-    environment {
-        TEXT_LOCATION = "./__tests__/test_files"
+    tools {
+        nodejs "Node"
     }
 
-    //tools {
-      //  NodeJS "Node"
-    //}
     stages {
         stage("build") {
 
-            
-                sh 'npm i -y'
-                //npm run run-server
-                //sleep 30s
+            steps {
+                sh """
+                npm i -y
+                """
+                // sh """
+                // npm run run-server & wait-on http://localhost:8080
+                // """
+
                 echo "build complete"
-                //echo $TEXT_LOCATION
             }
         }
         
@@ -33,4 +33,5 @@ pipeline {
             }
         }
         }
+}
     
