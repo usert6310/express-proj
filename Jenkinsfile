@@ -25,7 +25,7 @@ pipeline {
                 npm test
                 """
                 sh """
-                npm test-server
+                npm run test-server
                 """
             }
         }
