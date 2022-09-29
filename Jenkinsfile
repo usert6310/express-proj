@@ -5,9 +5,9 @@ pipeline {
         TEXT_LOCATION = "./__tests__/test_files"
     }
 
-    //tools {
-      //  NodeJS "Node"
-    //}
+    tools {
+        nodejs "Node"
+    }
     stages {
         stage("build") {
 
