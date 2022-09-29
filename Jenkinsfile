@@ -17,8 +17,8 @@ pipeline {
                 npm i -y
                 """
                 sh """
-                npm run run-server & wait-on http://localhost:8080
-                """
+                npm run run-server 
+                """// & wait-on http://localhost:8080
 
                 echo "build complete"
                 echo "${TEXT_LOCATION}"
