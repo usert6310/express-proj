@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        TEXT_LOCATION = "./__tests__/test_files"
-    }
-
     tools {
         nodejs "Node"
     }
@@ -18,16 +14,17 @@ pipeline {
                 """
                 //sh """
                 //npm run run-server 
-                //"""// & wait-on http://localhost:8080
+                //"""
 
                 echo "build complete"
-                echo "${TEXT_LOCATION}"
+
             }
         }
         
         stage("test") {
             steps {
                 echo "in test"
+                
                 sh """
                 npm test
                 """
