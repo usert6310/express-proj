@@ -8,17 +8,18 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                npm i -y
-                npm run run-server
-                sleep 30s
+                sh npm i -y
+                //npm run run-server
+                //sleep 30s
                 echo "build complete"
+                echo $TEXT_LOCATION
             }
         }
         
         stage("test") {
             steps {
                 echo "in test"
-                npm test
+                //npm test
                 //cypress run
             }
         }
