@@ -12,7 +12,7 @@ pipeline {
         stage("build") {
 
             steps {
-                sh `npm i -y`
+                sh 'npm i -y'
                 //npm run run-server
                 //sleep 30s
                 echo "build complete"
