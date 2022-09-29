@@ -12,9 +12,9 @@ pipeline {
                 sh """
                 npm i -y
                 """
-                //sh """
-                //npm run run-server 
-                //"""
+                sh """
+                nohup npm run run-server 
+                """
 
                 echo "build complete"
 
