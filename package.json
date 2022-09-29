@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "run-server": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",

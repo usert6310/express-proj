@@ -9,7 +9,8 @@ pipeline {
         stage("build") {
             steps {
                 npm i -y
-                echo "inbuild"
+                npm run run-server & wait-on http://localhost:3001
+                echo "build complete"
             }
         }
         
@@ -17,7 +18,7 @@ pipeline {
             steps {
                 echo "in test"
                 npm test
-                npx cypress run
+                //cypress run
             }
         }
         stage("deploy") {
