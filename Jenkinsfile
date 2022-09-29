@@ -21,7 +21,7 @@ pipeline {
                 """
 
                 echo "build complete"
-                echo ${TEXT_LOCATION}
+                echo "${TEXT_LOCATION}"
             }
         }
         
