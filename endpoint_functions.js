@@ -1,3 +1,12 @@
+const { createTextArray } = require("./helper_functions/createTextArray");
+const { getFileNames } = require("./helper_functions/getFileNames");
+
+
+// Get list of file names from article repository
+const fileNames = getFileNames("./text_files");
+// Create an array of contents of the articles to be displayed within the webpage
+const textArray = createTextArray(fileNames, "text_files");
+
 exports.login = (req, res) => {
   res.render("login_page", { layout: "index" });
 };

@@ -13,7 +13,7 @@ exports.createTextArray = function createTextArray(fileNames, filePath) {
     // Create article array
     const articleArray = {
       id: index,
-      articleName: file,
+      articleName: file.split(".")[0],
       contents: textContent,
       articleSummary: `${textContent.substring(0, 125)}...`,
       imageUrl:
