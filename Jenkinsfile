@@ -16,14 +16,12 @@ pipeline {
                 sh """
                 npm i -y
                 """
-                // sh """
-                // npm run run-server & wait-on http://localhost:8080
-                // """
+                sh """
+                npm run run-server & wait-on http://localhost:8080
+                """
 
-                //npm run run-server
-                //sleep 30s
                 echo "build complete"
-                //echo $TEXT_LOCATION
+                echo ${TEXT_LOCATION}
             }
         }
         
