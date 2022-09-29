@@ -9,7 +9,8 @@ pipeline {
         stage("build") {
             steps {
                 npm i -y
-                npm run run-server & wait-on http://localhost:3001
+                npm run run-server
+                sleep 30s
                 echo "build complete"
             }
         }
