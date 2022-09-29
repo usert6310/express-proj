@@ -5,14 +5,18 @@ pipeline {
         TEXT_LOCATION = "./__tests__/test_files"
     }
 
+    //tools {
+      //  NodeJS "Node"
+    //}
     stages {
         stage("build") {
-            steps {
+
+            
                 sh 'npm i -y'
                 //npm run run-server
                 //sleep 30s
                 echo "build complete"
-                echo $TEXT_LOCATION
+                //echo $TEXT_LOCATION
             }
         }
         
@@ -29,4 +33,4 @@ pipeline {
             }
         }
         }
-    }
+    
