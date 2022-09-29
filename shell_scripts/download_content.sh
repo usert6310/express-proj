@@ -23,21 +23,20 @@ case $extension in
 esac
 
 
-# Check filename to ensure no illegal characters have been included
-filename_regex='^[a-zA-z0-9_]*$'
-echo $file_name
-if [[ $file_name =~ $regex ]]
+# Check filename to ensure no illegal characters have been included. Exit if true
+filename_regex='^[a-zA-Z0-9_]*$'
+if [[ $file_name =~ $filename_regex ]]
     then
-        pass
+        :
     else
         echo "Filename contains illegal characters"
         exit 1
 fi
 
-# Check if the file already exists 
+# Check if the file already exists. Exit with failure if true
 if [ -f $filename.txt ]
 then   
-    echo "File already exists"
+    echo "File already exists. Aborting"
     exit 1
 fi
 
@@ -45,8 +44,6 @@ fi
 # Check length of file for download. If length == 0 do not download
 
 
-
-
-
+# Download the file to the text_files directory
 curl -o ./text_files/$file_name.txt $url > /dev/null 2>&1
 
