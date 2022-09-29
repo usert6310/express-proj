@@ -1,7 +1,7 @@
-{{> navbar}}
+{{> header}}
 
+<div class="row mb-2">
 {{#each fileObjects}}
-<a href="/{{this.id}}"><h3>{{this.articleName}}</h3></a>
-<p>{{this.articleSummary}}</p>
-
+    {{> homepage_posts this}}
 {{/each}}
+</div>
