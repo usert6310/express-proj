@@ -28,6 +28,4 @@ app.get("/login", login);
 app.get("/articles/:id", article);
 
 // init express
-app.listen(port, () => {
-  console.log(`App listening to port ${port}`);
-});
+app.listen(port);

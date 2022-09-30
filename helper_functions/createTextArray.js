@@ -1,10 +1,11 @@
+/* eslint-disable arrow-body-style */
 const fs = require("fs");
 
 exports.createTextArray = function createTextArray(fileNames, filePath) {
   const textArray = [];
   fileNames.forEach((file, index) => {
-    let textContent = fs.readFileSync(
-      (`./${filePath}/${file}`),
+    const textContent = fs.readFileSync(
+      `./${filePath}/${file}`,
       "utf-8",
       (err, data) => {
         return data;
