@@ -9,10 +9,7 @@ pipeline {
         stage("build") {
 
             steps {
-                sh """
-                npm i -y
-                """
-
+                sh "npm i -y"
                 echo "build complete"
 
             }
@@ -21,12 +18,8 @@ pipeline {
         stage("test") {
             steps {
                 echo "in test"
-                sh """
-                npm test
-                """
-                sh """
-                npm run test-server
-                """
+                sh "npm test"
+                sh "npm run test-server"
             }
         }
         stage("deploy") {
