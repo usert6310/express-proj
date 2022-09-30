@@ -4,7 +4,7 @@ describe("array function", () => {
   test("return correct array", () => {
     const expectedArray = [{
       id: 0,
-      articleName: "testfile1.txt",
+      articleName: "testfile1",
       contents: "test",
       articleSummary: "test...",
       imageUrl:
@@ -15,4 +15,3 @@ describe("array function", () => {
     expect(createTextArray(input, "__tests__/test_files")).toEqual(expectedArray)
   });
 });
-
